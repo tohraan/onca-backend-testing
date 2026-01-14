@@ -40,7 +40,8 @@ export const createAIClient = () => {
  * Only allows SELECT operations on approved views
  */
 export class AIDataAccess {
-    private client: ReturnType<typeof createClient>;
+    private client: any;
+
 
     constructor() {
         this.client = createAIClient();

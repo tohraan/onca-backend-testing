@@ -103,7 +103,7 @@ export const UpdateFinancialTaskSchema = CreateFinancialTaskSchema.partial().ext
 export const SheetsSyncSchema = z.object({
     url: z.string().url(),
     sheetName: z.string().optional(),
-    mapping: z.record(z.string()).optional(),
+    mapping: z.record(z.string(), z.string()).optional(),
 });
 
 // ============================================================================
@@ -161,7 +161,7 @@ export function validateRequest<T>(schema: z.ZodSchema<T>, data: unknown): T {
         return schema.parse(data);
     } catch (error) {
         if (error instanceof z.ZodError) {
-            const formattedErrors = error.errors.map(err => ({
+            const formattedErrors = (error as any).errors.map((err: any) => ({
                 field: err.path.join('.'),
                 message: err.message
             }));

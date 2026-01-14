@@ -24,8 +24,8 @@ export const explain = async (data: any, orgId?: string): Promise<string> => {
     let context = '';
     if (orgId) {
         try {
-            const orgContext = await aiDataAccess.getOrganizationContext(orgId);
-            context = `Organization: ${orgContext.name}. `;
+            const orgContext = await aiDataAccess.getOrganizationContext(orgId) as any;
+            context = `Organization: ${orgContext?.name || 'Unknown'}. `;
         } catch (error) {
             // Continue without context if fetch fails
             console.warn('Failed to fetch org context for AI:', error);
