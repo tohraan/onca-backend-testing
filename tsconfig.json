@@ -27,18 +27,19 @@
         "./src/*"
       ],
       "@core/*": [
-        "../../core/*"
+        "./src/core/*"
       ],
       "@/core/*": [
-        "../../core/*"
+        "./src/core/*"
       ],
       "@lib/*": [
-        "../../lib/*",
         "./src/lib/*"
       ],
       "@/lib/*": [
-        "./src/lib/*",
-        "../../lib/*"
+        "./src/lib/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
       ]
     }
   },
